@@ -9,6 +9,7 @@
 body {
     font-family: $font;
     font-weight: 400;
+    background-color: #1f2023;
 }
 a {
     text-decoration: none;
@@ -30,23 +31,24 @@ a {
         top: 0;
         z-index: -1;
     }
-    &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 24px;
-        background-image: url(../images/header-bottom.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-
-        position: absolute;
-        bottom: -24px;
-    }
+    
     &__logo {
         background-color: $accent;
         padding: 17px 45px 0 45px;
         border-top-left-radius: 10px;
         position: relative;
+        &::before {
+            content: '';
+            display: block;
+            width: 26px;
+            height: 24px;
+            background-image: url(../images/header-bottom-left.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+        }
         &::after {
             content: '';
             display: block;
@@ -66,6 +68,18 @@ a {
         padding: 17px 45px 0 45px;
         border-top-right-radius: 10px;
         position: relative;
+        &::before {
+            content: '';
+            display: block;
+            width: 26px;
+            height: 24px;
+            background-image: url(../images/header-bottom-right.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 0;
+            bottom: -24px;
+        }
         &::after {
             content: '';
             display: block;
@@ -78,4 +92,77 @@ a {
         }
     }
     
+}
+
+.container {
+    width: min(1830px, 100% - 30px);
+    margin-inline: auto;
+}
+
+.banner {
+    display: flex;
+    margin-top: 40px;
+    border-radius: 50px;
+    padding: 100px 50px;
+    width: 1830px;
+    min-height: 861px;
+    background: url(../images/bg-banner.jpg) center center/cover no-repeat;
+    &__title {
+        width: 1031px;
+        min-height: 140px;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 110%;
+        color: $light;
+    }
+    &__btn {
+        margin-top: 135px;
+        padding: 30px;
+        width: 1031px;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: $accent;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 110%;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: $light;
+    }
+}
+.banner-box {
+    margin-top: 20px;
+    padding: 30px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    width: 1031px;
+    min-height: 236px;
+    position: relative;
+    &__title {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 110%;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: $light;
+    }
+    &__text {
+        margin-top: 30px;
+        width: 669px;
+        min-height: 120px;
+        font-size: 20px;
+        line-height: 150%;
+        color: $light;
+    }
+    &__img {
+        position: absolute;
+        width: 336px;
+        height: 273px;
+        bottom: 30px;
+        right: -21px;
+    }
 }
