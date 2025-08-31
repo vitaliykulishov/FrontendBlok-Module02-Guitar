@@ -9,7 +9,9 @@
 body {
     font-family: $font;
     font-weight: 400;
+	color: $light;
     background-color: #1f2023;
+	
 }
 a {
     text-decoration: none;
@@ -20,7 +22,9 @@ a {
     align-items: stretch;
     justify-content: space-between;
     height: 71px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
     &::before {
         content: '';
         display: block;
@@ -101,12 +105,98 @@ a {
 
 .banner {
     display: flex;
-    margin-top: 40px;
+    margin-top: 135px;
     border-radius: 50px;
     padding: 100px 50px;
     width: 1830px;
     min-height: 861px;
     background: url(../images/bg-banner.jpg) center center/cover no-repeat;
+	gap: 50px;
+	&__main {
+		flex-basis: 61%;
+	}
+	&__info {
+		flex-basis: calc(39% - 50px);
+		display: flex;
+		flex-direction: column;
+		justify-content:space-between;
+		// gap: 19px;
+	}
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+		border: 1px solid $light;
+		border-right: none;
+		border-radius: 20px 0 0 20px;
+		height: 151px;
+		position: relative;
+		margin-right: 80px;
+		padding: 45px 0 30px 30px;
+		transition: $tr;
+        cursor: pointer;
+		
+		&:hover {
+			background-color: $accent;
+			border: 1px solid $accent;
+			&::after {
+				content: '';
+				// background-color: #fff;
+				display: block;
+				width: 80px;
+				height: 151px;
+				background-image: url(../images/banner-info-decor-hover.svg);
+				background-repeat: no-repeat;
+				background-size: contain;
+				position: absolute;
+				right: -80px;
+				top: -1px;
+			}
+			.banner__decor {
+				background-color: $accent;
+				border: 1px solid $accent;
+			}
+		}
+		p {
+			font-weight: 200;
+			font-size: 24px;
+			line-height: 110%;
+			span {
+				margin-top: 15px;
+				display: block;
+				font-weight: 700;
+				font-size: 32px;
+				line-height: 110%;
+			}
+		}
+		&::after {
+			content: '';
+			display: block;
+			width: 80px;
+			height: 151px;
+			background-image: url(../images/banner-info-decor.svg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			position: absolute;
+			right: -80px;
+			top: -1px;
+		}
+	}
+	&__decor {
+		position: absolute;
+		top: 0;
+		right: -80px;
+		border: 1px solid $light;
+		border-radius: 10px;
+		padding: 9px;
+		width: 50px;
+		height: 50px;
+	}
+
+
+
+
+
     &__title {
         width: 1031px;
         min-height: 140px;
@@ -132,14 +222,23 @@ a {
         letter-spacing: 0.05em;
         text-transform: uppercase;
         color: $light;
+        transition: $tr;
+        cursor: pointer;
+        @media(hover: hover) {
+			&:hover {
+				border: 1px solid $accent;
+           		background-color: transparent;
+			}
+        }
+       
     }
 }
 .banner-box {
     margin-top: 20px;
-    padding: 30px;
+    padding: 30px 332px 30px 30px;
     border: 1px solid #fff;
     border-radius: 20px;
-    width: 1031px;
+    // width: 1031px;
     min-height: 236px;
     position: relative;
     &__title {
@@ -152,7 +251,7 @@ a {
     }
     &__text {
         margin-top: 30px;
-        width: 669px;
+        // width: 669px;
         min-height: 120px;
         font-size: 20px;
         line-height: 150%;
@@ -160,9 +259,11 @@ a {
     }
     &__img {
         position: absolute;
+        &._electroguitar {
         width: 336px;
         height: 273px;
         bottom: 30px;
         right: -21px;
+        }
     }
 }
