@@ -25,6 +25,7 @@ a {
     position: fixed;
     top: 0;
     width: 100%;
+	z-index: 999;
     &::before {
         content: '';
         display: block;
@@ -134,42 +135,19 @@ a {
 		margin-right: 80px;
 		padding: 45px 0 30px 30px;
 		transition: $tr;
-        cursor: pointer;
-		
 		&:hover {
 			background-color: $accent;
-			border: 1px solid $accent;
+			border-color: $accent;
 			&::after {
-				content: '';
-				// background-color: #fff;
-				display: block;
-				width: 80px;
-				height: 151px;
-				background-image: url(../images/banner-info-decor-hover.svg);
-				background-repeat: no-repeat;
-				background-size: contain;
-				position: absolute;
-				right: -80px;
-				top: -1px;
+				opacity: 1;
 			}
 			.banner__decor {
 				background-color: $accent;
-				border: 1px solid $accent;
+				border-color: $accent;
 			}
 		}
-		p {
-			font-weight: 200;
-			font-size: 24px;
-			line-height: 110%;
-			span {
-				margin-top: 15px;
-				display: block;
-				font-weight: 700;
-				font-size: 32px;
-				line-height: 110%;
-			}
-		}
-		&::after {
+		
+		&::before {
 			content: '';
 			display: block;
 			width: 80px;
@@ -181,16 +159,46 @@ a {
 			right: -80px;
 			top: -1px;
 		}
+		&::after {
+			content: '';
+			display: block;
+			width: 80px;
+			height: 151px;
+			background-image: url(../images/banner-info-decor-hover.svg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			position: absolute;
+			right: -80px;
+			top: -1px;
+			opacity: 0;
+			transition: $tr;
+			
+		}
+	}
+	&__text {
+		font-weight: 200;
+		font-size: 24px;
+		line-height: 110%;
+		span {
+			margin-top: 15px;
+			display: block;
+			font-weight: 700;
+			font-size: 32px;
+		}
 	}
 	&__decor {
 		position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 		top: 0;
 		right: -80px;
 		border: 1px solid $light;
 		border-radius: 10px;
-		padding: 9px;
+		// padding: 9px;
 		width: 50px;
 		height: 50px;
+        transition: $tr;
 	}
 
 
