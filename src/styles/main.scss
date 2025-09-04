@@ -11,6 +11,7 @@ body {
     font-weight: 400;
 	color: $light;
     background-color: #1f2023;
+    overflow-x: hidden;
 	
 }
 a {
@@ -115,6 +116,9 @@ a {
 	gap: 50px;
 	&__main {
 		flex-basis: 61%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 	}
 	&__info {
 		flex-basis: calc(39% - 50px);
@@ -141,14 +145,14 @@ a {
                 width: 100%;
                 // height: 151px;
                 opacity: 1;
-                transform: translate(0,0) scale(1);
+                transform: scale(1);
                 
             }
 			.banner__decor {
 				background-color: $accent;
 				border-color: $accent;
                 &::after {
-                transform: translate(0, 0) scale(1);
+                transform: scale(1);
 				opacity: 1;
 			}
 			}
@@ -168,7 +172,8 @@ a {
             z-index: -1;
             opacity: 0;
             transition: $tr;
-            transform: translate(50%, 0) scale(0);
+            transform: scale(0);
+            transform-origin: top right;
         }
 		
 	}
@@ -213,7 +218,8 @@ a {
 			display: block;
 			width: 80px;
 			height: 151px;
-            transform: translate(-50%, 0) scale(0);
+            transform: scale(0);
+            transform-origin: top left;
 			background-image: url(../images/banner-info-decor-hover.svg);
 			background-repeat: no-repeat;
 			background-size: contain;
@@ -235,7 +241,7 @@ a {
         color: $light;
     }
     &__btn {
-        margin-top: 135px;
+        // margin-top: 135px;
         padding: 30px;
         width: 1031px;
         height: 130px;
@@ -294,5 +300,51 @@ a {
         bottom: 30px;
         right: -21px;
         }
+    }
+}
+
+.tag {
+    margin-top: 150px;
+    display: flex;
+    gap: 64px;
+    animation: move-left 20s infinite linear alternate;
+    overflow: hidden;
+    &:hover {
+        animation-play-state: paused;    
+    }
+    &__text {
+        border: 1px solid #ededed;
+        border-radius: 50px;
+        padding: 10px 20px;
+        // width: 154px;
+        height: 46px;
+        font-weight: 200;
+        font-size: 24px;
+
+        /* line-height: 26px; */ 
+        line-height: 110%;
+        color: $grey;
+        position: relative;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -44px;
+            top: 11px;
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            background-color: $accent;
+        }
+    }
+
+}
+
+@keyframes move-left {
+    0% {
+        transform: translate(100%, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
     }
 }
