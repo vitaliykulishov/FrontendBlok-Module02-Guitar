@@ -18,6 +18,15 @@ a {
     text-decoration: none;
 }
 
+.title-h2 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $grey;
+}
+
 .header {
     display: flex;
     align-items: stretch;
@@ -322,33 +331,29 @@ a {
         line-height: 110%;
         color: $grey;
         position: relative;
+        &::before, &:last-child::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: calc(50% - 8px);
+            bottom: 0;
+            margin: 0 auto;
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            background-color: $accent;
+        }
         &::before {
-            content: '';
-            display: block;
-            position: absolute;
-            left: -44px;
-            top: 11px;
-            width: 16px;
-            height: 16px;
-            border-radius: 100%;
-            background-color: $accent;
+            left: -40px
+
         }
-        &._end-text {
-            &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            right: -44px;
-            top: 11px;
-            width: 16px;
-            height: 16px;
-            border-radius: 100%;
-            background-color: $accent;
-        }
+        &:last-child::after {
+            right: -40px;
         }
     }
-
 }
+
+
 
 @keyframes move-left {
     0% {
@@ -356,5 +361,73 @@ a {
     }
     100% {
         transform: translate(-100%, 0);
+    }
+}
+
+.course {
+    margin-top: 150px;
+    display: flex;
+    gap: 70px;
+    &__title {
+        flex-basis: 394px;
+    }
+    &__content {
+        flex-basis: calc(100% - 395px - 70px);
+        width: calc(100% - 395px - 70px);
+    }
+}
+
+.course-control {
+    // margin-top: 20px;
+    display: flex;
+    align-items:center;
+    gap: 20px;
+    &__prev, &__next {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        border: 1px solid $light;
+        border-radius: 50px;
+        // padding: 20px;
+        right: inherit;
+        left: inherit;
+        position: inherit;
+        &:hover {
+            background: $accent;
+            border: 1px solid $accent;
+        }
+        &::after {
+            content: '';
+            display: block;
+            width: 49px;
+            height: 24px;
+            background-repeat: no-repeat;
+		    background-size: contain;
+            
+        }
+
+    }
+    &__prev {
+        &::after {
+            background-image: url(../images/ui/arrow-prev.svg);
+        }
+        
+
+    }
+    &__next {
+        &::after {
+        background-image: url(../images/ui/arrow-next.svg);
+    }
+    }
+}
+.slider-teacher {
+    &__item {
+        background-color: $dark;
+    }
+    &__img {
+        width: 100%;
     }
 }
