@@ -494,9 +494,11 @@ a {
         }
     }
 }
-
-.accordion {
+.course__schedule {
     margin-top: 50px;
+}
+.accordion {
+    
     &__btn {
         border: 1px solid $light;
         border-radius: 20px;
@@ -504,13 +506,16 @@ a {
         width: 100%;
         height: 90px;
         background-color: $light;
-
+        border: none;
         font-weight: 400;
         font-size: 32px;
         line-height: 110%;
         color: $accent;
         text-align: left;
-        position: relative;
+        // position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         &::after {
             content: '';
             display: block;
@@ -519,9 +524,9 @@ a {
             background-image: url(../images/ui/minus.svg);
             background-repeat: no-repeat;
             background-size: contain;
-            position: absolute;
-            right: 20px;
-            top: 20px;
+            // position: absolute;
+            // right: 20px;
+            // top: 20px;
             // transform: translateY(-50%)
         }
         &.active {
@@ -561,5 +566,35 @@ a {
         &::before {
             content: '—';
         }
+    }
+}
+
+.steps {
+    margin-top: 150px;
+    border: 1px solid $grey;
+    border-radius: 50px;
+    padding: 150px 0;
+    width: 100%;
+    min-height: 591px;
+    background: linear-gradient(180deg, #1f2023 0%, #7027e2 50%, #1f2023 100%);
+    &__list {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+    &__item {
+        background-color: $light;
+        border-radius: 50px;
+        padding: 30px;
+        width: 435px;
+        min-height: 206px;
+    }
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #2a2f36;
     }
 }
