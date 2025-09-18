@@ -17,6 +17,9 @@ body {
 a {
     text-decoration: none;
 }
+button {
+	cursor: pointer;
+}
 
 .title-h2 {
     font-weight: 700;
@@ -621,27 +624,28 @@ a {
         }
     }
     &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         color: $dark;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
         span {
-            margin-bottom: 20px;
-            display: block;
+            width: fit-content;
             font-weight: 600;
             font-size: 24px;
             line-height: 110%;
             text-align: center;
             color: $light;
             border-radius: 10px;
-            width: 62px;
             padding: 10px;
-            height: 46px;
             background: $accent;
-            &._first-item {
-                width: 55px;
-            }
+
         }
     }
     &__btn {
-        grid-column: 2 / 5;
+        grid-column: 2 / 4;
         // padding: 30px;
         border: none;
         display: flex;
@@ -666,5 +670,102 @@ a {
         }
        
     
+    }
+}
+
+.areas {
+	margin-top: 150px;
+	margin-bottom: 100px;
+	&__wrapper {
+		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+    &__link {
+        display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 108px;
+        padding: 30px;
+        transition: $tr;
+		background-color: transparent;
+        border-bottom: 1px solid $accent;
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 150%;
+		color: $light;
+		position: relative;
+		&::after {
+			content: '';
+			display: block;
+			width: 48px;
+			height: 48px;
+			background-image: url(../images/ui/arrow-up.svg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			transition: $tr;
+		}
+        @media(hover: hover) {
+			&:hover {
+                background-color: $accent;
+                border-radius: 10px;
+				&::after {
+					transform: rotate(45deg);
+				}
+				&::before {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+        }
+		&::before {
+			content: '';
+			display: block;
+			background-repeat: no-repeat;
+			background-size: contain;
+			position: absolute;
+			left: 718px;
+			opacity: 0;
+			transform: scale(0);
+			transition: 0.5s;
+		}
+		&._acoustic {
+			&::before {
+				content: '';
+				background-image: url(../images/areas/acoustic.png);
+				left: 769px;
+				height: 365px;
+				width: 522px;
+				top: calc(50% - 182px);
+			}
+		}
+		&._drums {
+			&::before {
+				content: '';
+				background-image: url(../images/areas/drums.png);
+				height: 474px;
+				width: 474px;
+				top: calc(50% - 237px);
+			}
+		}
+		&._violin {
+			&::before {
+				content: '';
+				background-image: url(../images/areas/violin.png);
+				height: 568px;
+				width: 568px;
+				top: calc(50% - 284px);
+			}
+		}
+		&._bas-guitar {
+			&::before {
+				content: '';
+				background-image: url(../images/areas/bas-guitar.png);
+				height: 374px;
+				width: 522px;
+				top: calc(50% - 187px);
+			}
+		}
     }
 }
