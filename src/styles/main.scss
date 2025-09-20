@@ -112,6 +112,21 @@ button {
     
 }
 
+.logo {
+    &._max {
+        svg {
+            width: 400px;
+            height: 31px;
+        }
+    }
+    &._min {
+        svg {
+            width: 296px;
+            height: 22px;
+        }
+    }
+}
+
 .container {
     width: min(1830px, 100% - 30px);
     margin-inline: auto;
@@ -767,5 +782,90 @@ button {
 				top: calc(50% - 187px);
 			}
 		}
+    }
+}
+.footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 20px;
+    padding: 30px 50px;
+    width: 1831px;
+    height: 160px;
+    background: $dark;
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: $light;
+
+    }
+    &__link {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: $accent;
+    }
+    &__copy {
+        display: flex;
+        justify-content: end;
+        align-items: end;
+    }
+
+}
+.social {
+    display: flex;
+    // align-items: center;
+    justify-content: end;
+    gap: 10px;
+    // float: right;
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // display: block;
+        border-radius: 10px;
+        width: 44px;
+        height: 44px;
+        background: $light;
+        background-repeat: no-repeat;
+        &:hover {
+            background-color: $accent;
+            &::after {
+                background-color: $light;
+            }
+        }
+        &::after {
+            content: '';
+            display: block;
+            background-color: $accent;
+            mask: center center / 100% no-repeat;
+            -webkit-mask: center center / 100% no-repeat;
+        }
+        &._wa {
+            &::after {
+                width: 28.125px;
+                height: 28.125px;
+                mask-image: url(../images/social/wa.svg);
+                -webkit-mask-image: url(../images/social/wa.svg);
+            }           
+        }
+        &._vk {
+            &::after {
+                width: 31.25px;
+                height: 18.75px;
+                mask-image: url(../images/social/vk.svg);
+                -webkit-mask-image: url(../images/social/vk.svg);
+            }           
+        }
+        &._tg {
+            &::after {
+                width: 25px;
+                height: 21.875px;
+                mask-image: url(../images/social/tg.svg);
+                -webkit-mask-image: url(../images/social/tg.svg);
+            }           
+        }
     }
 }
