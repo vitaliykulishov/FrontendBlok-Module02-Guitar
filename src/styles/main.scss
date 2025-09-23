@@ -157,7 +157,7 @@ button {
     margin-top: 135px;
     border-radius: 50px;
     padding: 100px 50px;
-    width: 1830px;
+    width: 100%;
     min-height: 861px;
     background: url(../images/bg-banner.jpg) center center/cover no-repeat;
 	gap: 50px;
@@ -187,24 +187,24 @@ button {
 		padding: 45px 0 30px 30px;
 		transition: $tr;
         z-index: 1;
-@media (hover: hover) {
-    &:hover {
-        &::before {
-            width: 100%;
-            // height: 151px;
-            opacity: 1;
-            transform: scale(1);
-        }
-        .banner__decor {
-            background-color: $accent;
-            border-color: $accent;
-            &::after {
-                transform: scale(1);
-                opacity: 1;
+        @media (hover: hover) {
+            &:hover {
+                &::before {
+                    width: 100%;
+                    // height: 151px;
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                .banner__decor {
+                    background-color: $accent;
+                    border-color: $accent;
+                    &::after {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                }
             }
         }
-    }
-}
 		&::before {
             content: ' ';
             display: block;
@@ -291,7 +291,7 @@ button {
     &__btn {
         // margin-top: 135px;
         padding: 30px;
-        width: 1031px;
+        width: 100%;
         height: 130px;
         display: flex;
         align-items: center;
