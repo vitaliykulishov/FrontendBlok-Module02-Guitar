@@ -258,6 +258,7 @@ align-items: center;
                 @media (max-width: $r_tab) {
             font-size: clamp(18px, 1.5vw + 0.8rem, 24px);
         }
+
         
     }
     &__text {
@@ -326,7 +327,11 @@ align-items: center;
         padding: 50px 30px;
     }
     @media (max-width: calc($r_tab - 20px)) {
+        gap: 30px;
         margin-top: 85px;
+        border-radius: 20px;
+        padding: 20px  15px;
+        
     }
 	&__main {
         display: flex;
@@ -365,13 +370,17 @@ align-items: center;
 		padding: 45px 0 30px 30px;
 		transition: $tr;
         z-index: 1;
-        @media (max-width: ($r_desk - 24px)) {
+        @media (max-width: $r_tab) {
             margin-right: 0;
             padding: 25px 30px 25px 100px;
             border-radius: 20px;
             border: 1px solid $light;
             justify-content: center;
             height: 100px;
+        }
+        @media (max-width: ($r_tab - 20px)) {
+            height: 80px;
+            padding: 20px 15px;
         }
         @media (hover: hover) {
             &:hover {
@@ -384,7 +393,7 @@ align-items: center;
                 .banner__decor {
                     background-color: $accent;
                     border-color: $accent;
-                    @media (max-width: ($r_desk - 24px)) {
+                    @media (max-width: ($r_tab)) {
                         background-color: $accent;
                         border-color: $light;
                     }
@@ -412,7 +421,7 @@ align-items: center;
             transition: $tr;
             transform: scale(0);
             transform-origin: top right;
-            @media (max-width: ($r_desk - 24px)) {
+            @media (max-width: ($r-tab)) {
                 right: -1px;
                 height: 100px;
                 border-radius: 20px;
@@ -425,7 +434,7 @@ align-items: center;
 		font-weight: 200;
 		font-size: 24px;
 		line-height: 110%;
-        @media (max-width: ($r_desk - 24px)) {
+        @media (max-width: ($r_tab)) {
             font-size: 18px;
         }
 		span {
@@ -433,7 +442,7 @@ align-items: center;
 			display: block;
 			font-weight: 700;
 			font-size: 32px;
-            @media (max-width: ($r_desk - 24px)) {
+            @media (max-width: ($r_tab)) {
                 font-size: 20px;
                 margin-top: 12px;
             }
@@ -452,11 +461,16 @@ align-items: center;
 		width: 50px;
 		height: 50px;
         transition: $tr;
-        @media (max-width: ($r_desk - 24px)) {
+        @media (max-width: ($r_tab)) {
             right: inherit;
             top: calc(50% - 25px);
             // top: 25px;
             left: 30px;
+            
+        }
+        @media (max-width: calc($r_tab - 20px)) {
+            height: 40px;
+            width: 40px;
         }
         &::before {
 			content: '';
@@ -469,7 +483,7 @@ align-items: center;
 			position: absolute;
 			right: 0px;
 			top: -1px;
-            @media (max-width: ($r_desk - 24px)) {
+            @media (max-width: ($r_tab)) {
                 display: none;
             }
 		}
@@ -488,7 +502,7 @@ align-items: center;
 			top: -1px;
 			opacity: 0;
 			transition: $tr;
-			@media (max-width: ($r_desk - 24px)) {
+			@media (max-width: ($r_tab)) {
                 display: none;
             }
 		}
@@ -506,6 +520,12 @@ align-items: center;
         }
         @media (max-width: $r_tab) {
             font-size: 40px;
+        }
+        @media (max-width: calc($r_tab - 20px)) {
+            margin-top: 0;
+            margin-bottom: 0;
+            min-height: inherit;
+            font-size: clamp(20px, 6vw, 40px);
         }
     }
     &__btn {
@@ -544,7 +564,13 @@ align-items: center;
             margin-top: 50px;
         }
         @media (max-width: $r_tab) {
-            margin-top: 50px;
+            height: 110px;
+            margin-top: 30px;
+        }
+        @media (max-width: calc($r_tab - 20px)) {
+            height: 80px;
+            font-size: clamp(14px, 1.2vw + 0.6rem, 20px);
+            margin-top: clamp(12px, 5vw, 30px);
         }
        
     }
